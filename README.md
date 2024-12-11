@@ -22,22 +22,14 @@ Follow these steps to set up and run the application:
    gradlew.bat run
    ```
    
-## Fitur Login
-![Screenshot 2024-12-04 224401](https://github.com/user-attachments/assets/a6a08446-0f08-495a-8e81-04fbd552d342)
+## Landing Page(Home Page)
+![Screenshot 2024-12-12 003553](https://github.com/user-attachments/assets/db51fc82-d2ef-425c-ace1-0a7eb8401926)
 
-## Fitur visible password
+## Profile Page
 
-![Screenshot 2024-12-04 224351](https://github.com/user-attachments/assets/6a482411-6372-4fd1-aef2-6d6b37b96912)
+![Screenshot 2024-12-12 003613](https://github.com/user-attachments/assets/dc02472c-357f-4791-b19a-afe731c75ec0)
 
-## Intent Page
-Move to another page if the login button or register button is pressed and the condition is fulfilled
+## Settings Page
+![Screenshot 2024-12-12 003624](https://github.com/user-attachments/assets/665c76b3-0505-44e5-bf27-9d3c7f554e7d)
 
-![Screenshot 2024-12-04 224654](https://github.com/user-attachments/assets/45a8f80d-a47a-4fed-a4e3-7097c5c0fab3)
-
-Move to another page if dont have account is pressed and the condition is fulfilled 
-
-![Screenshot 2024-12-04 224718](https://github.com/user-attachments/assets/72f78baf-dd05-478d-8a02-79df0fd51d92)
-
-## Favorite Mechanism
-if the Star is pressed it will turns into yellow which indicates the articles has been favorited otherwise it stays grey.
-![Screenshot 2024-12-04 224704](https://github.com/user-attachments/assets/1b3db8d4-c64a-4d80-ac26-ae7906506779)
+![Screenshot 2024-12-12 003636](https://github.com/user-attachments/assets/0d294452-354f-4ad5-a30c-927f317a1eb6)
