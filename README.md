@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/7fc938b6-08d3-4ecc-a31b-8193a72ab3d7)
 ## How to Run the Application
 
 Follow these steps to set up and run the application:
