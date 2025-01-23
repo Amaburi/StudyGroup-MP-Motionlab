@@ -1,4 +1,4 @@
-package com.example.jetpckcompose
+package com.example.jetpckcompose.screen
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -46,11 +46,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.jetpckcompose.R
+import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun LoginScreen(navController: NavController) {
     val context = LocalContext.current
-    var username by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
 
@@ -91,8 +93,8 @@ fun LoginScreen(navController: NavController) {
 
                 TextField(
                     modifier = Modifier.fillMaxWidth(),
-                    value = username,
-                    onValueChange = { username = it },
+                    value = email,
+                    onValueChange = { email = it },
                     label = { Text("Username") },
                     colors = TextFieldDefaults.colors(
                         focusedIndicatorColor = colorResource(R.color.greengacor),
@@ -129,7 +131,7 @@ fun LoginScreen(navController: NavController) {
                     modifier = Modifier
                         .offset(x = 140.dp, y = 15.dp)
                         .clickable {
-                            navController.navigate(RegisterScreen)
+                            navController.navigate(com.example.jetpckcompose.RegisterScreen)
                         },
                     text = "Don't have account?",
                     color = colorResource(R.color.greengacor),
@@ -146,8 +148,33 @@ fun LoginScreen(navController: NavController) {
                             "Login button clicked",
                             Toast.LENGTH_SHORT
                         ).show()
+                        val auth = FirebaseAuth.getInstance()
+                        if (email.isBlank() || password.isBlank()) {
+                            Toast.makeText(
+                                context,
+                                "Email or password cannot be empty",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            auth.signInWithEmailAndPassword(email, password)
+                                .addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        Toast.makeText(
+                                            context,
+                                            "Registration Successful!",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        navController.navigate(com.example.jetpckcompose.HomeScreen)
+                                    } else {
+                                        Toast.makeText(
+                                            context,
+                                            "Error: ${task.exception?.message}",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                        }
 
-                        navController.navigate(HomeScreen)
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = colorResource(R.color.greengacor),

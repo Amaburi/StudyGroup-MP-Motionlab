@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "71259239356",
+    "project_id": "jtpckcomposemotion",
+    "storage_bucket": "jtpckcomposemotion.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71259239356:android:31b3a2001147f7fbc0f1b9",
+        "android_client_info": {
+          "package_name": "com.example.jetpckcompose"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcnkCIa4i2CalQ8cP584pN_mSSrtZU9Lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,14 +7,21 @@ import androidx.activity.compose.setContent
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.jetpckcompose.screen.HomeScreen
+import com.example.jetpckcompose.screen.LoginScreen
+import com.example.jetpckcompose.screen.ProfileScreen
+import com.example.jetpckcompose.screen.RegisterScreen
+import com.example.jetpckcompose.screen.SettingsScreen
 
 
 import com.example.jetpckcompose.ui.theme.JetpckcomposeTheme
+import com.google.firebase.FirebaseApp
 import kotlinx.serialization.Serializable
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
         setContent {
             JetpckcomposeTheme {
                 val navController = rememberNavController()

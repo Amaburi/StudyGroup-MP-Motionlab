@@ -1,10 +1,8 @@
-package com.example.jetpckcompose
+package com.example.jetpckcompose.screen
 
-import android.os.Bundle
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,10 +18,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
-import org.w3c.dom.Text
-
-
+import com.example.jetpckcompose.utils.BottomNavigationComponent
+import com.example.jetpckcompose.R
 
 
 val customFont = FontFamily(
@@ -96,7 +92,7 @@ fun ProfileScreen(navController: NavController) {
                 // Logout Button
                 Button(
                     onClick = {
-                        navController.navigate(LoginScreen)
+                        navController.navigate(com.example.jetpckcompose.LoginScreen)
                     },
                     modifier = Modifier
                         .fillMaxWidth()

@@ -1,10 +1,9 @@
-package com.example.jetpckcompose
+package com.example.jetpckcompose.screen
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -22,6 +21,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.jetpckcompose.R
+import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun RegisterScreen(navController: NavController) {
@@ -136,7 +137,33 @@ fun RegisterScreen(navController: NavController) {
                             "Registration Successful!",
                             Toast.LENGTH_SHORT
                         ).show()
-                        navController.navigate(HomeScreen)
+                        val auth = FirebaseAuth.getInstance()
+                        if (email.isBlank() || password.isBlank()) {
+                            Toast.makeText(
+                                context,
+                                "Email or password cannot be empty",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            auth.createUserWithEmailAndPassword(email, password)
+                                .addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        Toast.makeText(
+                                            context,
+                                            "Login Successful!",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        navController.navigate(com.example.jetpckcompose.LoginScreen)
+                                    } else {
+                                        Toast.makeText(
+                                            context,
+                                            "Error: ${task.exception?.message}",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                        }
+
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = colorResource(R.color.greengacor),
@@ -149,7 +176,7 @@ fun RegisterScreen(navController: NavController) {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Already have an account? Navigation to Login
-                TextButton(onClick = { navController.navigate(LoginScreen) }) {
+                TextButton(onClick = { navController.navigate(com.example.jetpckcompose.LoginScreen) }) {
                     Text(
                         text = "Already have an account? Login",
                         color = colorResource(R.color.greengacor),
@@ -160,6 +187,7 @@ fun RegisterScreen(navController: NavController) {
         }
     )
 }
+
 @Preview
 @Composable
 fun RegisterScreen() {
@@ -286,7 +314,7 @@ fun RegisterScreen() {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Already have an account? Navigation to Login
-                TextButton(onClick = {  }) {
+                TextButton(onClick = { }) {
                     Text(
                         text = "Already have an account? Login",
                         color = colorResource(R.color.greengacor),
